@@ -2,9 +2,7 @@ package br.ufrn.imd.helloworld.controller;
 
 import br.ufrn.imd.helloworld.entity.Greeting;
 import br.ufrn.imd.helloworld.repository.GreetingRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,20 +14,20 @@ public final class GreetingController {
         this.greetingRepository = greetingRepository;
     }
 
+    @ResponseBody
     @GetMapping("/greetings")
     public List<Greeting> index(){
         return greetingRepository.findAll();
     }
 
+    @ResponseBody
+    @ResponseStatus
+    @RequestMapping(path = "/greetings", method = RequestMethod.POST)
     public String storeGreeting(@RequestBody Greeting greeting){
-         greetingRepository.save(greeting);
+        greetingRepository.save(greeting);
 
         return "Greeting stored with id " + greeting.getId();
 
-
     }
-
-
-
 
 }
