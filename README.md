@@ -51,7 +51,7 @@ curl --location --request GET 'http://localhost:8080/greetings'
     {
         "id": 1,
         "message": "Hi!",
-        "author": "Lucas Vinicius"
+        "author": "Luís Cândido"
     }
 ]
 ```
@@ -65,7 +65,7 @@ curl --location --request POST 'http://localhost:8080/greetings' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "message": "Hi!",
-    "author": "Lucas Vinicius"
+     "author": "Luís Cândido"
 }'
 ```
 
